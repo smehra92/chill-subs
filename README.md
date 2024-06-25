@@ -1,10 +1,3 @@
-Run the code : npm run dev
-
-Deployed Link : link``
-
-
-Based on the provided code and project description, here's a suggested README for your project:
-
 # Last Chance to Submit - Literary Magazine Deadline Tracker
 
 ## Project Overview
@@ -27,8 +20,7 @@ This Next.js application helps writers track upcoming submission deadlines for l
 
 ## How to Use
 
-1. Visit the deployed application at
-[Link Text](chill-subs-5zgp9obeh-siddharth-mehras-projects.vercel.app)
+1. Visit the deployed application at[chill-subs-5zgp9obeh-siddharth-mehras-projects.vercel.app]
 2. Click the "Generate List" button to view the list of magazines with upcoming deadlines
 3. Click the "Download List" button to save the generated list as an HTML file
 
