@@ -14,23 +14,28 @@ const Home = () => {
 
        let currentDate = new Date();
 
-      //  const nextSunday = new Date(currentDate);
-      // nextSunday.setDate(today.getDate() + (7 - today.getDay()));
+       const nextSunday = new Date(currentDate);
+      nextSunday.setDate(currentDate.getDate() + (7 - currentDate.getDay()));
+      
+      /*
+       //Un-Comment next 4 lines as well as line 37 for next monday to next sunday.
 
        let nextMonday = new Date(currentDate);
        nextMonday.setDate(currentDate.getDate() + ((1 + 7 - currentDate.getDay()) % 7));
-       
        let nextSunday = new Date(nextMonday);
        nextSunday.setDate(nextMonday.getDate() + 6);
        
       //  console.log(currentDate) 
       //  console.log(nextMonday)
       //  console.log(nextSunday)
+      */  
+
       
        const filteredMagazines = data.filter(magazine => {
         if (magazine.readingPeriods && magazine.readingPeriods.length > 0) {
           const deadline = new Date(magazine.readingPeriods[0].deadline.$date);
-          return deadline >= nextMonday && deadline <= nextSunday;
+          //return deadline >= nextMonday && deadline <= nextSunday;
+          return deadline >= currentDate && deadline <= nextSunday;
         }
         // console.log(deadline)
         return false;
