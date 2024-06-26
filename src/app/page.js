@@ -50,7 +50,7 @@ const Home = () => {
   const generateHTML = () => {
     let html = '<h1>Last Chance to Submit</h1>';
     magazines.forEach(magazine => {
-      const genres = magazine.genres.map(genre => genreOptions.find(option => option.id === genre.id)?.label || genre.value).join(', ');
+      const genres = magazine.genres.map(genre => genreOptions.find(option => option.id === genre.id)?.label).join(', ');
       const deadline = new Date(magazine.readingPeriods[0].deadline.$date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
       const country = magazine.country || 'Unknown country';
       const yearFounded = magazine.yearFounded || 'Unknown year';
