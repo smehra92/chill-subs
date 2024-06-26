@@ -12,15 +12,27 @@ const Home = () => {
     const fetchMagazines = async () => {
       const data = magazinesData;
 
-      const today = new Date();
-      const nextSunday = new Date(today);
-      nextSunday.setDate(today.getDate() + (7 - today.getDay()));
+       let currentDate = new Date();
 
-      const filteredMagazines = data.filter(magazine => {
+      //  const nextSunday = new Date(currentDate);
+      // nextSunday.setDate(today.getDate() + (7 - today.getDay()));
+
+       let nextMonday = new Date(currentDate);
+       nextMonday.setDate(currentDate.getDate() + ((1 + 7 - currentDate.getDay()) % 7));
+       
+       let nextSunday = new Date(nextMonday);
+       nextSunday.setDate(nextMonday.getDate() + 6);
+       
+      //  console.log(currentDate) 
+      //  console.log(nextMonday)
+      //  console.log(nextSunday)
+      
+       const filteredMagazines = data.filter(magazine => {
         if (magazine.readingPeriods && magazine.readingPeriods.length > 0) {
           const deadline = new Date(magazine.readingPeriods[0].deadline.$date);
-          return deadline >= today && deadline <= nextSunday;
+          return deadline >= nextMonday && deadline <= nextSunday;
         }
+        // console.log(deadline)
         return false;
       });
 
